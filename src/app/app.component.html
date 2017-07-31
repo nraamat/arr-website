@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+<div id="navigation">
+  <div class="item" *ngFor="let item of navigationItems; let i = index" [ngClass]="{'active': selectedItem && item === selectedItem}" [ngStyle]="{'animation-delay': (i * 500) +'ms'}" (click)="selectNavigation(item)">
+    {{ item.name }}
+  </div>
+</div>
+<div id="content">
+  <div class="item" *ngFor="let item of (selectedItem ? selectedItem.items : []); let i = index" [ngStyle]="{'animation-delay': (i * 200) +'ms'}" >
+    {{ item }}
+  </div>
+</div>
+<div id="players">
+  <div class="item" *ngFor="let item of (selectedItem ? selectedItem.items : []); let i = index" [ngStyle]="{'animation-delay': (i * 200) +'ms'}" >
+    {{ item }}
+  </div>
+</div>
